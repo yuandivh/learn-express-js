@@ -2,9 +2,7 @@ const express = require('express')
 const { attachUser, checkApiKey } = require('../middleware/auth.middleware')
 const { getProfile, getHome, getUserDetail, createUser, getUsers, getUser, updateUser, deleteUser, testError } = require('../controllers/user.controller')
 const { getTickets, getTicketsDetail, createTickets } = require('../controllers/ticket.controller')
-const { getProduct } = require('../controllers/product.controller')
-const { errorMiddleware } = require('../middleware/error.middleware')
-
+const { getProduct, getProductDetail } = require('../controllers/product.controller')
 const router = express.Router()
 
 router.get("/profile",attachUser, getProfile)
@@ -24,6 +22,7 @@ router.get("/tickets/:id",getTicketsDetail)
 router.post("/tickets",createTickets)
 
 router.get("/products",checkApiKey, getProduct)
+router.get("/products/:id",checkApiKey, getProductDetail)
 
 router.get("/testerror",testError)
 

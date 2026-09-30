@@ -153,7 +153,7 @@ const getHome = (req, res) => {
 };
 
 const testError = (req, res, next) => {
-  next(new Error("test error"))
+  next(new Error("Data error"))
 }
 
 
